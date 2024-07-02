@@ -1,9 +1,12 @@
 import express from "express";
 import { config } from "dotenv";
 import cors from "cors";
-import { v2 as cloudinary } from "cloudinary";
 import { connectDB } from "./config/database.js";
 import { connectRedis } from "./config/redis.js";
+import morgan from "morgan";
+import Stripe from "stripe";
+import { errorMiddleware } from "./middlewares/error.js";
+import { cloudinaryConnect } from "./config/cloudinary.js";
 
 config({
   path: "./.env",
@@ -11,19 +14,23 @@ config({
 
 const port = process.env.PORT || 5000;
 const mongoURI = process.env.MONGO_URI || "";
+const stripeKey = process.env.STRIPE_KEY || "";
 const redisURI = process.env.REDIS_URI || "";
+const cloud_name = process.env.CLOUD_NAME || "";
+const key = process.env.API_KEY || "";
+const secret = process.env.API_SECRET || "";
 export const redisTTL = process.env.REDIS_TTL || 60 * 60 * 4;
 
 connectDB(mongoURI);
 connectRedis(redisURI);
+cloudinaryConnect(cloud_name, key, secret);
 
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_API_KEY,
-  api_secret: process.env.CLOUD_API_SECRET,
-});
+export const stripe = new Stripe(stripeKey);
 
 const app = express();
+app.use(express.json());
+app.use(morgan("dev"));
+
 app.use(
   cors({
     origin: "*",
@@ -35,6 +42,9 @@ app.use(
 app.get("/", (req, res) => {
   res.send("API Working with /api/v1");
 });
+
+app.use("/uploads", express.static("uploads"));
+app.use(errorMiddleware);
 
 app.listen(port, () => {
   console.log(`Express is working on http://localhost:${port}`);
