@@ -8,6 +8,8 @@ import Stripe from "stripe";
 import { errorMiddleware } from "./middlewares/error.js";
 import { cloudinaryConnect } from "./config/cloudinary.js";
 
+import userRoute from "./routes/user.js";
+
 config({
   path: "./.env",
 });
@@ -42,6 +44,8 @@ app.use(
 app.get("/", (req, res) => {
   res.send("API Working with /api/v1");
 });
+
+app.use("/api/v1/user", userRoute);
 
 app.use("/uploads", express.static("uploads"));
 app.use(errorMiddleware);
