@@ -26,7 +26,7 @@ const secret = process.env.API_SECRET || "";
 export const redisTTL = process.env.REDIS_TTL || 60 * 60 * 4;
 
 connectDB(mongoURI);
-connectRedis(redisURI);
+export const redis = connectRedis(redisURI);
 cloudinaryConnect(cloud_name, key, secret);
 
 export const stripe = new Stripe(stripeKey);
