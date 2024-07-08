@@ -1,6 +1,61 @@
+import { UploadApiResponse, v2 as cloudinary } from "cloudinary";
 import { redis } from "../app.js"; // Importing the Redis client instance from app.js
 import { Product } from "../model/product.js"; // Importing the Product model for database operations
 import { InvalidateCacheProps, OrderItemType } from "../types/types.js"; // Importing TypeScript types
+import mongoose from "mongoose";
+import { Review } from "../model/review.js";
+
+export const findAverageRatings = async (
+  productId: mongoose.Types.ObjectId
+) => {
+  let totalRating = 0;
+
+  const reviews = await Review.find({ product: productId });
+  reviews.forEach((review) => {
+    totalRating += review.rating;
+  });
+
+  const averateRating = Math.floor(totalRating / reviews.length) || 0;
+
+  return {
+    numOfReviews: reviews.length,
+    ratings: averateRating,
+  };
+};
+
+const getBase64 = (file: Express.Multer.File) =>
+  `data:${file.mimetype};base64,${file.buffer.toString("base64")}`;
+
+export const uploadToCloudinary = async (files: Express.Multer.File[]) => {
+  const promises = files.map(async (file) => {
+    return new Promise<UploadApiResponse>((resolve, reject) => {
+      cloudinary.uploader.upload(getBase64(file), (error, result) => {
+        if (error) return reject(error);
+        resolve(result!);
+      });
+    });
+  });
+
+  const result = await Promise.all(promises);
+
+  return result.map((i) => ({
+    public_id: i.public_id,
+    url: i.secure_url,
+  }));
+};
+
+export const deleteFromCloudinary = async (publicIds: string[]) => {
+  const promises = publicIds.map((id) => {
+    return new Promise<void>((resolve, reject) => {
+      cloudinary.uploader.destroy(id, (error, result) => {
+        if (error) return reject(error);
+        resolve();
+      });
+    });
+  });
+
+  await Promise.all(promises);
+};
 
 export const invalidateCache = async ({
   product,
