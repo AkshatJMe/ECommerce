@@ -180,6 +180,7 @@ export const updateProduct = TryCatch(async (req, res, next) => {
     await deleteFromCloudinary(ids);
 
     // Update product photos
+    //@ts-ignore
     product.photos = photosURL;
   }
 

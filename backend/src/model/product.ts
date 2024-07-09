@@ -1,86 +1,72 @@
-import mongoose, { Document } from "mongoose";
+import mongoose from "mongoose";
 
-// Define the IProduct interface extending Mongoose's Document
-interface IProduct extends Document {
-  name: string; // Name of the product
-  photos: Array<{
-    public_id: string; // Public ID of the photo
-    url: string; // URL of the photo
-  }>; // Array of photos
-  price: number; // Price of the product
-  stock: number; // Stock quantity of the product
-  category: string; // Category of the product
-  description: string; // Description of the product
-  ratings: number; // Rating of the product
-  numOfReviews: number; // Number of reviews for the product
-  createdAt: Date; // Timestamp when the document was created
-  updatedAt: Date; // Timestamp when the document was last updated
-}
-
-// Define a Mongoose schema for the Product model
-const schema = new mongoose.Schema<IProduct>(
+// Define the schema for the Product model
+const schema = new mongoose.Schema(
   {
-    // Name of the product
+    // Name of the product, must be a string and is required
     name: {
-      type: String, // Specifies that 'name' is of type String
-      required: [true, "Please enter Name"], // Ensures 'name' is required with a custom error message
+      type: String,
+      required: [true, "Please enter Name"],
     },
 
     // Array of photos associated with the product
     photos: [
       {
+        // Public ID of the photo, must be a string and is required
         public_id: {
-          type: String, // Specifies that 'public_id' is of type String
-          required: [true, "Please enter Public ID"], // Ensures 'public_id' is required with a custom error message
+          type: String,
+          required: [true, "Please enter Public ID"],
         },
+        // URL of the photo, must be a string and is required
         url: {
-          type: String, // Specifies that 'url' is of type String
-          required: [true, "Please enter URL"], // Ensures 'url' is required with a custom error message
+          type: String,
+          required: [true, "Please enter URL"],
         },
       },
     ],
 
-    // Price of the product
+    // Price of the product, must be a number and is required
     price: {
-      type: Number, // Specifies that 'price' is of type Number
-      required: [true, "Please enter Price"], // Ensures 'price' is required with a custom error message
+      type: Number,
+      required: [true, "Please enter Price"],
     },
 
-    // Stock quantity of the product
+    // Stock quantity of the product, must be a number and is required
     stock: {
-      type: Number, // Specifies that 'stock' is of type Number
-      required: [true, "Please enter Stock"], // Ensures 'stock' is required with a custom error message
+      type: Number,
+      required: [true, "Please enter Stock"],
     },
 
-    // Category of the product
+    // Category of the product, must be a string, is required, and is trimmed of whitespace
     category: {
-      type: String, // Specifies that 'category' is of type String
-      required: [true, "Please enter Category"], // Ensures 'category' is required with a custom error message
-      trim: true, // Removes whitespace from the beginning and end of the category string
+      type: String,
+      required: [true, "Please enter Category"],
+      trim: true,
     },
 
-    // Description of the product
+    // Description of the product, must be a string and is required
     description: {
-      type: String, // Specifies that 'description' is of type String
-      required: [true, "Please enter Description"], // Ensures 'description' is required with a custom error message
+      type: String,
+      required: [true, "Please enter Description"],
     },
 
-    // Rating of the product
+    // Ratings for the product, defaults to 0
     ratings: {
-      type: Number, // Specifies that 'ratings' is of type Number
-      default: 0, // Sets default value of 'ratings' to 0
+      type: Number,
+      default: 0,
     },
 
-    // Number of reviews for the product
+    // Number of reviews for the product, defaults to 0
     numOfReviews: {
-      type: Number, // Specifies that 'numOfReviews' is of type Number
-      default: 0, // Sets default value of 'numOfReviews' to 0
+      type: Number,
+      default: 0,
     },
   },
   {
-    timestamps: true, // Adds 'createdAt' and 'updatedAt' fields to the schema
+    // Automatically create `createdAt` and `updatedAt` fields
+    timestamps: true,
   }
 );
 
-// Create and export a Mongoose model named 'Product' using the defined schema and IProduct interface
-export const Product = mongoose.model<IProduct>("Product", schema);
+// Create and export the Product model based on the schema
+export const Product = mongoose.model("Product", schema);
