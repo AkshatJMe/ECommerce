@@ -1,0 +1,10 @@
+.announcement {
+  height: 2rem; // Equivalent to `h-8`
+  background-color: #008080; // Teal color
+  color: #ffffff; // White color
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem; // Text size for `text-sm`
+  font-weight: 500; // Font weight for `font-medium`
+}

@@ -1,0 +1,54 @@
+.newsletter {
+  height: 15rem; // Equivalent to `h-60`
+  background-color: #fcf5f5; // Equivalent to `bg-[#fcf5f5]`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    font-size: 3.75rem; // Equivalent to `text-6xl`
+    margin-bottom: 1.25rem; // Equivalent to `mb-5`
+  }
+
+  p {
+    font-size: 1.25rem; // Equivalent to `text-2xl`
+    font-weight: 300; // Equivalent to `font-light`
+    margin-bottom: 1.25rem; // Equivalent to `mb-5`
+    text-align: center;
+    @media (min-width: 768px) {
+      text-align: left; // Equivalent to `md:text-left`
+    }
+  }
+
+  .input-container {
+    width: 50%; // Equivalent to `w-1/2`
+    height: 2.5rem; // Equivalent to `h-10`
+    background-color: #ffffff; // Equivalent to `bg-white`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #d1d5db; // Equivalent to `border border-gray-300`
+
+    @media (min-width: 768px) {
+      width: 80%; // Equivalent to `md:w-4/5`
+    }
+
+    input {
+      border: none;
+      flex-grow: 1;
+      padding-left: 1.25rem; // Equivalent to `pl-5`
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      flex-shrink: 0;
+      background-color: #008080; // Equivalent to `bg-teal-500`
+      margin-right: 0.25rem; // Equivalent to `mr-1`
+      color: #ffffff;
+      padding: 0.5rem; // Equivalent to `p-2`
+    }
+  }
+}

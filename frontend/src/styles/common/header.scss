@@ -1,0 +1,104 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #1e293b; // slate-900
+
+  .logo {
+    margin-left: 1.5rem; // ml-6
+    font-size: 1.5rem; // text-2xl
+    font-weight: bold;
+
+    .logo-text {
+      color: #ffffff; // text-white
+    }
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 48rem; // max-w-md
+    background-color: #ffffff; // bg-white
+    border-radius: 9999px; // rounded-full
+    border: 1px solid #d1d5db; // border-gray-300
+    padding: 0.5rem; // p-2
+
+    .search-input {
+      border: none;
+      flex-grow: 1;
+      padding-left: 1rem; // pl-4
+      color: #4b5563; // text-gray-700
+      border-radius: 9999px; // rounded-full
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .search-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #14b8a6; // bg-teal-500
+      color: #ffffff; // text-white
+      padding: 0.5rem; // p-2
+      border-radius: 9999px; // rounded-full
+      border: none;
+    }
+
+    .search-icon {
+      color: #6b7280; // text-gray-500
+      font-size: 1.125rem; // text-lg
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem; // gap-x-6
+    margin-right: 1.5rem; // mr-6
+    font-family: "Inter", sans-serif; // -tracking-tighter & font-medium
+
+    .i-icon {
+      color: #f8fafc; // text-slate-100
+      position: relative;
+      &:hover {
+        color: inherit; // Inherit color from .nav-links
+        color: #22c55e; // hover:text-green-400
+        cursor: pointer;
+        transition: color 0.3s ease-in;
+      }
+
+      .icon {
+        font-size: 1.5rem; // text-2xl
+      }
+
+      .login-icon {
+        font-size: 1.8rem; // text-2xl
+      }
+    }
+  }
+}
+
+// Animation for cart count
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}

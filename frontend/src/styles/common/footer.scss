@@ -1,0 +1,109 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row; // Equivalent to `md:flex-row`
+  }
+}
+
+.section {
+  flex: 1;
+  padding: 1.25rem; // Equivalent to `p-5`
+
+  &.social-media {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 1.5rem; // Equivalent to `text-2xl`
+      font-weight: 700; // Equivalent to `font-bold`
+    }
+
+    p {
+      margin: 1.25rem 0; // Equivalent to `my-5`
+    }
+
+    .social-icons {
+      display: flex;
+
+      .icon {
+        width: 2.5rem; // Equivalent to `w-10`
+        height: 2.5rem; // Equivalent to `h-10`
+        border-radius: 50%; // Equivalent to `rounded-full`
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        margin-right: 1.25rem; // Equivalent to `mr-5`
+      }
+
+      .facebook {
+        background-color: #3b5999;
+      }
+      .instagram {
+        background-color: #e4405f;
+      }
+      .twitter {
+        background-color: #55acee;
+      }
+      .pinterest {
+        background-color: #e60023;
+      }
+    }
+  }
+
+  &.links {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+
+    h3 {
+      margin-bottom: 2rem; // Equivalent to `mb-8`
+      font-size: 1.125rem; // Equivalent to `text-lg`
+      font-weight: 600; // Equivalent to `font-semibold`
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+
+      li {
+        width: 50%; // Equivalent to `w-1/2`
+        margin-bottom: 0.5rem; // Equivalent to `mb-2`
+      }
+    }
+  }
+
+  &.contact {
+    background-color: #fff8f8; // Equivalent to `bg-[#fff8f8]`
+    @media (min-width: 768px) {
+      background-color: transparent; // Equivalent to `md:bg-transparent`
+    }
+
+    h3 {
+      margin-bottom: 2rem; // Equivalent to `mb-8`
+      font-size: 1.125rem; // Equivalent to `text-lg`
+      font-weight: 600; // Equivalent to `font-semibold`
+    }
+
+    .contact-item {
+      margin-bottom: 1.25rem; // Equivalent to `mb-5`
+      display: flex;
+      align-items: center;
+
+      .icon {
+        margin-right: 0.5rem; // Equivalent to `mr-2`
+      }
+    }
+
+    .payment-image {
+      width: 50%; // Equivalent to `w-1/2`
+    }
+  }
+}
