@@ -14,9 +14,11 @@ const Footer: React.FC = () => {
       <div className="section social-media">
         <h1>Trend Mart</h1>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem,
-          tempore laborum nisi deserunt sint ea pariatur adipisci molestias
-          sunt, sit.
+          Shop with confidence at TrendMart. Enjoy seamless shopping with secure
+          checkout, fast shipping, and dedicated customer support. Explore our
+          wide range of products, read customer reviews, and take advantage of
+          exclusive offers. For inquiries or assistance, contact us at
+          realakshatjain@gmail.com
         </p>
         <div className="social-icons">
           <div className="icon facebook">

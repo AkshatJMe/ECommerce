@@ -1,0 +1,90 @@
+.carousel {
+  position: relative;
+  width: 100%;
+
+  .carousel-wrapper {
+    position: relative;
+    height: 14rem; /* Equivalent to h-56 */
+    overflow: hidden;
+    border-radius: 0.5rem; /* Equivalent to rounded-lg */
+
+    @media (min-width: 768px) {
+      height: 24rem; /* Equivalent to md:h-96 */
+    }
+
+    .carousel-item {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.2s ease-linear;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+
+      &.active {
+        opacity: 1;
+        z-index: 2;
+      }
+
+      .carousel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .carousel-control {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 3rem; /* Equivalent to px-4 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 30;
+
+    .control-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem; /* Equivalent to w-10 */
+      height: 2.5rem; /* Equivalent to h-10 */
+      border-radius: 50%;
+      background-color: rgba(
+        255,
+        255,
+        255,
+        0.3
+      ); /* Equivalent to bg-white/30 */
+
+      &:hover {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.5
+        ); /* Equivalent to bg-white/50 */
+      }
+
+      .icon {
+        width: 1rem; /* Equivalent to w-4 */
+        height: 1rem; /* Equivalent to h-4 */
+        color: #fff; /* Equivalent to text-white */
+      }
+    }
+
+    &.carousel-prev {
+      left: 0;
+    }
+
+    &.carousel-next {
+      right: 0;
+    }
+  }
+}

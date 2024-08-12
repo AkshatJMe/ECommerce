@@ -1,13 +1,13 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { lazy } from "react";
-
-const Home = lazy(() => import("./pages/Home"));
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );

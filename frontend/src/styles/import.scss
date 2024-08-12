@@ -1,5 +1,8 @@
-@import "./core/announcement.scss";
+@import "./core/home/announcement.scss";
 @import "./common/header.scss";
-@import "./core//catagories.scss";
+@import "./core/home/catagories.scss";
 @import "./common/newsletter.scss";
 @import "./common/footer.scss";
+@import "core/home/hero.scss";
+@import "core/home/carousel.scss";
+@import "core/home/client.scss";

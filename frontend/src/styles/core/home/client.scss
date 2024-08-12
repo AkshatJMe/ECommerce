@@ -1,0 +1,50 @@
+@import "../../mixin/mixin";
+
+.our-services {
+  background-color: #fff; // Light grey background
+  padding: 10rem;
+  position: relative;
+  overflow: hidden;
+
+  > ul {
+    max-width: 1367px;
+    margin: 0 auto;
+
+    @include grid(1fr 1fr 1fr, 0, auto);
+    list-style: none;
+    > li {
+      @include flex(column);
+      > div {
+        background-color: black;
+        @include square(5rem);
+        @include flex;
+        border-radius: 50%;
+        border: 0.6rem solid gray;
+        transition: all 0.3s ease;
+        svg {
+          color: white;
+          font-size: 2.5rem;
+        }
+
+        &:hover {
+          border: 0rem solid rgb(0, 0, 0);
+        }
+      }
+
+      > section {
+        @include flex(column);
+        text-align: center;
+        gap: 0;
+        margin-top: 1rem;
+        h3 {
+          font-size: 1.5rem;
+          color: #000000;
+        }
+        p {
+          font-size: 1rem;
+          color: #3a3a3a;
+        }
+      }
+    }
+  }
+}

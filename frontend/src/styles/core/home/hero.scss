@@ -1,0 +1,75 @@
+// Define variables for colors and font sizes
+$color-primary: #003438; // Primary color, replace with your design color
+$color-text: #000000; // Text color
+$color-link: #003438; // Link color, replace with your design color
+$font-size-heading: 1.5rem; // Adjust based on design
+$font-size-link: 1rem; // Adjust based on design
+
+// Mixin for flexbox layout
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Mixin for headings
+@mixin heading($font-size) {
+  font-size: $font-size;
+  font-weight: bold;
+}
+
+// Style for the .hero class
+.hero {
+  padding: 2rem 5%;
+  @include flex(row, space-between, center);
+  max-width: 1920px;
+  margin: auto;
+  width: 100%;
+
+  // Styling for aside within .hero
+  aside {
+    width: 20%; // Adjust width based on design needs
+    flex: none;
+    position: relative;
+
+    // Styling for h1 inside aside
+    h1 {
+      @include heading($font-size-heading);
+      margin-bottom: 2rem; // Adjust spacing based on design
+      @include flex(row, space-between, center);
+      position: relative;
+
+      // Styling for the pseudo-element
+      &::before {
+        content: "";
+        width: 3px;
+        height: 2rem;
+        background-color: $color-primary;
+        position: absolute;
+        left: -1rem; // Adjust positioning based on design
+      }
+    }
+
+    // Styling for ul inside aside
+    ul {
+      @include flex(column, flex-start, flex-start);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      // Styling for each link inside ul
+      a {
+        text-decoration: none; // Remove underline
+        color: $color-link;
+        margin-bottom: 1rem; // Space between links
+        font-size: $font-size-link;
+        transition: color 0.3s ease; // Smooth color transition on hover
+
+        &:hover {
+          color: darken($color-link, 10%); // Darken link color on hover
+        }
+      }
+    }
+  }
+}
