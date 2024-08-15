@@ -18,6 +18,24 @@
     }
   }
 
+  dialog {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100px;
+    position: absolute;
+    left: calc(100% - 100px);
+    top: 8%;
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      font-family: "Inter", sans-serif; // -tracking-tighter & font-medium
+      color: #000000;
+    }
+  }
+
   .search-bar {
     display: flex;
     align-items: center;

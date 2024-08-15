@@ -1,0 +1,101 @@
+// Define a mixin for flexible styles
+@mixin flex($direction: row, $align: center, $justify: center, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+// Define a mixin for input styles
+@mixin inputStyle {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+// Define a mixin for button styles
+@mixin btn($background: unset, $color: black, $hover: unset) {
+  background: $background;
+  color: $color;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Define a base shadow mixin
+@mixin baseShadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.login {
+  height: 90vh;
+  @include flex(column);
+
+  > main {
+    width: 100%;
+    height: 80%;
+    max-width: 400px;
+    padding: 2rem;
+    @include baseShadow;
+    @include flex(column, center, center);
+    background: linear-gradient(to bottom right, #f7f9fc, #e4e9f2);
+    border-radius: 10px;
+
+    > div {
+      width: 100%;
+      @include flex(column, flex-start, stretch, 1rem);
+
+      > input,
+      > select {
+        @include inputStyle;
+        border: 1px solid rgba(162, 162, 162, 0.53);
+        border-radius: 8px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        outline: none;
+        width: 100%;
+
+        &:focus {
+          border-color: #4a90e2;
+        }
+      }
+
+      > p {
+        text-align: center;
+        margin: 2rem;
+        font-size: 1.1rem;
+        color: #333;
+      }
+
+      button {
+        width: 70%;
+        margin: auto;
+        height: 3rem;
+        @include btn(rgb(62, 125, 242), white, rgba(62, 125, 242, 0.8));
+        border: 1px solid rgb(62, 125, 242);
+        border-radius: 8px;
+        font-size: 1.1rem;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+
+        > svg {
+          background-color: white;
+          width: 30%;
+          height: 100%;
+        }
+
+        > span {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

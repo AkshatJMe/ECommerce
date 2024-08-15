@@ -9,7 +9,6 @@ import Services from "../components/home/core/Services";
 const Home = () => {
   return (
     <div>
-      <Header />
       <Announcement />
       <Hero />
       <Categories />

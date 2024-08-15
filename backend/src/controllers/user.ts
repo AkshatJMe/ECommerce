@@ -14,6 +14,7 @@ export const newUser = TryCatch(
   ) => {
     // Destructure user data from the request body
     const { name, email, photo, gender, _id, dob } = req.body;
+    console.log(name, email, photo, gender, _id, dob);
 
     // Check if all required fields are provided
     if (!_id || !name || !email || !photo || !gender || !dob) {
