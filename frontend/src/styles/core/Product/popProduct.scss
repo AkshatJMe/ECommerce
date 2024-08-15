@@ -1,0 +1,27 @@
+// PopularProduct.module.scss
+
+.popular-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  max-width: 1200px;
+  padding: 20px;
+  margin: 0 auto;
+  min-height: 80vh;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 641px) and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1025px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

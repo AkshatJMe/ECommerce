@@ -26,11 +26,6 @@ $shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: $border-radius;
   font-size: 1rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
-
-  &:hover {
-    background-color: darken($background, 10%);
-    transform: translateY(-2px);
-  }
 }
 
 // Mixin for input styles
@@ -97,8 +92,6 @@ $shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
     input[type="text"] {
       @include inputStyle;
-      width: 100%;
-      margin: 1rem 0;
     }
 
     span {

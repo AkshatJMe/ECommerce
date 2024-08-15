@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaSearch, FaShoppingCart, FaSignOutAlt } from "react-icons/fa";
 import { IoLogIn } from "react-icons/io5";
 import { User } from "../../types/types";
@@ -13,6 +13,7 @@ interface PropsType {
 }
 
 const Header = ({ user }: PropsType) => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const logoutHandler = async () => {
@@ -32,18 +33,12 @@ const Header = ({ user }: PropsType) => {
         </div>
       </Link>
 
-      <div className="search-bar">
-        <input
-          className="search-input"
-          type="email"
-          placeholder="Search Products"
-        />
-        <button className="search-button">
-          <FaSearch className="search-icon" />
-        </button>
-      </div>
-
       <div className="nav-links">
+        <Link to={"/search"}>
+          <div className="i-icon">
+            <FaSearch className="icon" />
+          </div>
+        </Link>
         <Link to="/cart">
           <div className="i-icon">
             <FaShoppingCart className="icon" />
