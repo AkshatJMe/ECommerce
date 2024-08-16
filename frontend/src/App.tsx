@@ -9,7 +9,6 @@ import { userExist, userNotExist } from "./redux/reducer/userReducer";
 import { auth } from "./firebase";
 import { RootState } from "./redux/store";
 import Header from "./components/common/Header";
-import Cart from "./pages/Cart";
 import Search from "./pages/Search";
 
 function App() {
@@ -34,7 +33,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/cart" element={<Cart />} />
       </Routes>
     </Router>
   );
