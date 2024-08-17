@@ -112,33 +112,45 @@ const Search = () => {
         {productLoading ? (
           <Skeleton length={10} />
         ) : (
-          <div className="search-product-list">
-            {searchedData?.products.map((i) => (
-              <ProductCard
-                key={i._id}
-                productId={i._id}
-                name={i.name}
-                price={i.price}
-                stock={i.stock}
-                handler={addToCartHandler}
-                photos={i.photos}
-              />
-            ))}
+          <div className="mb-8">
+            <div className="search-product-list">
+              {searchedData?.products.map((i) => (
+                <ProductCard
+                  key={i._id}
+                  productId={i._id}
+                  name={i.name}
+                  price={i.price}
+                  stock={i.stock}
+                  handler={addToCartHandler}
+                  photos={i.photos}
+                />
+              ))}
+            </div>
           </div>
         )}
 
         {searchedData && searchedData.totalPage > 1 && (
-          <article>
+          <article className="flex items-center gap-4 ">
             <button
+              className={`px-4 py-2 text-white font-semibold rounded-lg mr-2 transition-colors ${
+                !isPrevPage
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-teal-500 hover:bg-teal-600"
+              }`}
               disabled={!isPrevPage}
               onClick={() => setPage((prev) => prev - 1)}
             >
               Prev
             </button>
-            <span>
+            <span className="text-teal-800 mr-2 font-medium">
               {page} of {searchedData.totalPage}
             </span>
             <button
+              className={`px-4 py-2 text-white font-semibold rounded-lg transition-colors ${
+                !isNextPage
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-teal-500 hover:bg-teal-600"
+              }`}
               disabled={!isNextPage}
               onClick={() => setPage((prev) => prev + 1)}
             >

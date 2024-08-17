@@ -14,13 +14,7 @@ export const newUser = TryCatch(
   ) => {
     // Destructure user data from the request body
     const { name, email, photo, gender, _id, dob } = req.body;
-    console.log(name, email, photo, gender, _id, dob);
-
-    // Check if all required fields are provided
-    if (!_id || !name || !email || !photo || !gender || !dob) {
-      // If not, pass an error to the error-handling middleware
-      return next(new ErrorHandler("Please add all fields", 400));
-    }
+    // console.log(name, email, photo, gender, _id, dob);
 
     // Try to find the user by ID
     let user = await User.findById(_id);
@@ -31,6 +25,12 @@ export const newUser = TryCatch(
         suces: true, // Note: Should be "success" for correct spelling
         message: `Welcome, ${user.name}`,
       });
+    }
+
+    // Check if all required fields are provided
+    if (!_id || !name || !email || !photo || !gender || !dob) {
+      // If not, pass an error to the error-handling middleware
+      return next(new ErrorHandler("Please add all fields", 400));
     }
 
     // If user does not exist, create a new user

@@ -10,6 +10,7 @@ import { auth } from "./firebase";
 import { RootState } from "./redux/store";
 import Header from "./components/common/Header";
 import Search from "./pages/Search";
+import Cart from "./pages/Cart";
 
 function App() {
   const { user, loading } = useSelector(
@@ -32,6 +33,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/search" element={<Search />} />
       </Routes>
     </Router>
