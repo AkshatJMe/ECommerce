@@ -85,7 +85,7 @@ const Cart: React.FC = () => {
         </main>
 
         <aside className="bg-white p-6 rounded-lg h-fit shadow-md w-96">
-          <div className="mb-4">
+          <div className="mb-8">
             <p className="text-lg text-gray-600 mb-2">
               Subtotal:{" "}
               <span className="font-medium text-gray-800 mb-2">

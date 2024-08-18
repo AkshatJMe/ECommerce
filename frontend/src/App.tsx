@@ -11,6 +11,9 @@ import { RootState } from "./redux/store";
 import Header from "./components/common/Header";
 import Search from "./pages/Search";
 import Cart from "./pages/Cart";
+import ProductDetails from "./pages/ProductDetails.tsx";
+import Shipping from "./pages/Shipping.tsx";
+import Checkout from "./pages/Checkout.tsx";
 
 function App() {
   const { user, loading } = useSelector(
@@ -35,6 +38,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/shipping" element={<Shipping />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </Router>
   );
