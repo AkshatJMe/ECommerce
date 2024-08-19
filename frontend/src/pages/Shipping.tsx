@@ -1,7 +1,6 @@
 import axios from "axios";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { BiArrowBack } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { saveShippingInfo } from "../redux/reducer/cartReducer";

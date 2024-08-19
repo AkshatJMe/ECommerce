@@ -5,15 +5,12 @@ const categories = [
   "Electronics",
   "Mobiles",
   "Laptops",
-  "Books",
   "Fashion",
   "Appliances",
   "Furniture",
   "Home Decor",
-  "Grocery",
   "Beauty",
   "Toys",
-  "Fitness",
 ];
 
 const Hero = () => {
