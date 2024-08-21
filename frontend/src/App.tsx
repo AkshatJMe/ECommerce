@@ -15,6 +15,7 @@ import ProductDetails from "./pages/ProductDetails.tsx";
 import Shipping from "./pages/Shipping.tsx";
 import Checkout from "./pages/Checkout.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Orders from "./pages/Order.tsx";
 
 function App() {
   const { user, loading } = useSelector(
@@ -40,6 +41,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/search" element={<Search />} />
         <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/orders" element={<Orders />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<NotFound />} />
