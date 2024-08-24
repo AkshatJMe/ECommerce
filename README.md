@@ -5,7 +5,7 @@ The platform is built using the **MERN stack**, which includes ReactJS, NodeJS, 
 
 ## Schema 📋
 
-<img width='100%' src='https://github.com/HiAkshatJain/LearnPulse/blob/main/schema/schema.png' />
+<img width='100%' src='https://github.com/HiAkshatJain/ECommerce/blob/main/schema/schema.png' />
 
 ## Tech Stack 💻🔧
 
