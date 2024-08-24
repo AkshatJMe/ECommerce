@@ -3,9 +3,9 @@
 Developed a dynamic e-commerce platform with TypeScript <br/>
 The platform is built using the **MERN stack**, which includes ReactJS, NodeJS, MongoDB, and ExpressJS with sass.
 
-## Schema 📚:
+## Schema 📋
 
-<code title="Schema"><img height="40" src="https://github.com/HiAkshatJain/ECommerce/blob/main/schema/schema.png"></code>
+<img width='100%' src='https://github.com/HiAkshatJain/LearnPulse/blob/main/schema/schema.png' />
 
 ## Tech Stack 💻🔧
 
